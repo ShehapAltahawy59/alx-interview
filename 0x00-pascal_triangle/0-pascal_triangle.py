@@ -2,14 +2,16 @@
 """
 0-pascal_triangle
 """
+
 def pascal_triangle(n):
     """
     Returns a list of integers
     representing the Pascal Triangle of n
     returns empty list if n <= 0
     """
+    
     if n <= 0 :
-        return[]
+        return []
     triangle = []
     for row in range(n):
         # Initialize each row with 1s
