@@ -1,11 +1,18 @@
 #!/usr/bin/python3
-
-def pascal_triangle(row_num):
-    if row_num <= 0 :
+"""
+0-pascal_triangle
+"""
+def pascal_triangle(n):
+    """
+    Returns a list of integers
+    representing the Pascal Triangle of n
+    returns empty list if n <= 0
+    """
+    if n <= 0 :
         return[]
     pascal_triangle=[]
 
-    for row in range(row_num):
+    for row in range(n):
         currunt_row = [1]*(row+1)
         print(currunt_row)
         for j in range(1,row):
