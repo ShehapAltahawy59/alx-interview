@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 def pascal_triangle(row_num):
     pascal_triangle=[]
 
