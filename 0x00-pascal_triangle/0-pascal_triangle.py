@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 
 def pascal_triangle(row_num):
+    if row_num <= 0 :
+        return[]
     pascal_triangle=[]
 
     for row in range(row_num):
