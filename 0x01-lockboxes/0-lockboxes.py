@@ -8,7 +8,7 @@ def canUnlockAll(boxes):
         True: all boxes can be opened
         False: not all boxes can be opened
     '''
-    if (boxes and type(boxes) is list and len(boxes>0)):
+    if (boxes and type(boxes) is list and len(boxes)>0):
         n = len(boxes)
         keys = {x for x in boxes[0]}
         keys.add(0)
@@ -22,3 +22,13 @@ def canUnlockAll(boxes):
         return len(keys) == len(boxes)
     else:
         return False
+
+
+boxes = [[1], [2], [3], [4], []]
+print(canUnlockAll(boxes))
+
+boxes = [[1, 4, 6], [2], [0, 4, 1], [5, 6, 2], [3], [4, 1], [6]]
+print(canUnlockAll(boxes))
+
+boxes = [[1, 4], [2], [0, 4, 1], [3], [], [4, 1], [5, 6]]
+print(canUnlockAll(boxes))
