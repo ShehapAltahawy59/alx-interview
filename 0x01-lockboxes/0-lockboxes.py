@@ -13,7 +13,6 @@ def canUnlockAll(boxes):
         keys = {x for x in boxes[0]}
         keys.add(0)
         opened_boxes = [0]
-        x = []
         for i in opened_boxes:
             for x in boxes[i]:
                 if x < n:
