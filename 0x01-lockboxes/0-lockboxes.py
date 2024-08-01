@@ -8,7 +8,7 @@ def canUnlockAll(boxes):
         True: all boxes can be opened
         False: not all boxes can be opened
     '''
-    if(boxes):
+    if(boxes and type(boxes) is list):
         n = len(boxes)
         keys = {x for x in boxes[0]}
         keys.add(0)
@@ -21,3 +21,5 @@ def canUnlockAll(boxes):
                     if (x not in opened_boxes):
                         opened_boxes.append(x)
         return len(keys) == len(boxes)
+    else:
+        return False
