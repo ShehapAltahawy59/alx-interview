@@ -1,34 +1,29 @@
 #!/usr/bin/python3
-'''LockBoxes Challenge'''
+
+"""
+Problem: You have n number of locked boxes in front of you.
+         Each box is numbered sequentially from 0 to n - 1
+         and each box may contain keys to the other boxes.
+Task: Write a method that determines if all the boxes can be opened.
+"""
 
 
 def canUnlockAll(boxes):
-    '''determines if all the boxes can be opened or not
-    Returns:
-        True: all boxes can be opened
-        False: not all boxes can be opened
-    '''
-    if (type(boxes) is list and len(boxes)>0):
-        n = len(boxes)
-        keys = {x for x in boxes[0]}
-        keys.add(0)
-        opened_boxes = [0]
-        for i in opened_boxes:
-            for x in boxes[i]:
-                if x < n:
-                    keys.add(x)
-                    if (x not in opened_boxes):
-                        opened_boxes.append(x)
-        return len(keys) == len(boxes)
-    else:
+    """
+    Function that checks with boolean value if the list type and
+    length to invoke two for iterations one to traverse the list
+    and the other to compaer if key is idx or not in order to open
+    """
+    if type(boxes) is not list:
         return False
-
-
-boxes = [[1], [2], [3], [4], []]
-print(canUnlockAll(boxes))
-
-boxes = [[1, 4, 6], [2], [0, 4, 1], [5, 6, 2], [3], [4, 1], [6]]
-print(canUnlockAll(boxes))
-
-boxes = [[1, 4], [2], [0, 4, 1], [3], [], [4, 1], [5, 6]]
-print(canUnlockAll(boxes))
+    elif (len(boxes)) == 0:
+        return False
+    for k in range(1, len(boxes) - 1):
+        boxes_checked = False
+        for idx in range(len(boxes)):
+            boxes_checked = k in boxes[idx] and k != idx
+            if boxes_checked:
+                break
+        if boxes_checked is False:
+            return boxes_checked
+    return True
