@@ -14,14 +14,16 @@ def minOperations(n):
         factor_list: List to save the operations
     Return: the sum of the operations
     """
-    if n < 2:
+    if n <= 1:
         return 0
-    factor_list = []
-    i = 1
-    while n != 1:
-        i += 1
-        if n % i == 0:
-            while n % i == 0:
-                n /= i
-                factor_list.append(i)
-    return sum(factor_list)
+
+    operations = 0
+    factor = 2
+    
+    while n > 1:
+        while n % factor == 0:
+            operations += factor
+            n //= factor
+        factor += 1
+    
+    return operations
